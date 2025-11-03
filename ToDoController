@@ -1,0 +1,16 @@
+package Assign5;
+public class ToDoController {
+ private ToDoModel model;
+ private ToDoView view;
+ public ToDoController(ToDoModel model, ToDoView view) {
+     this.model = model;
+     this.view = view;
+ }
+ public void addTask(String task) {
+     model.addTask(task);
+     view.showMessage("Task added: " + task);
+ }
+ public void displayTasks() {
+     view.showTasks(model.getTasks());
+ }
+}
