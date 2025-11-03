@@ -1,0 +1,35 @@
+package Assign5;
+import java.util.Scanner;
+public class Main {
+ public static void main(String[] args) {
+     ToDoModel model = new ToDoModel();
+     ToDoView view = new ToDoView();
+     ToDoController controller = new ToDoController(model, view);
+     Scanner sc = new Scanner(System.in);
+     int choice;
+     do {
+         System.out.println("\n1. Add Task");
+         System.out.println("2. View Tasks");
+         System.out.println("3. Exit");
+         System.out.print("Enter your choice: ");
+         choice = sc.nextInt();
+         sc.nextLine(); 
+         switch (choice) {
+             case 1:
+                 System.out.print("Enter task: ");
+                 String task = sc.nextLine();
+                 controller.addTask(task);
+                 break;
+             case 2:
+                 controller.displayTasks();
+                 break;
+             case 3:
+                 System.out.println("Exiting... Goodbye!");
+                 break;
+             default:
+                 System.out.println("Invalid choice. Try again!");
+         }
+     } while (choice != 3);
+     sc.close();
+ }
+}
